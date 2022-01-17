@@ -17,14 +17,14 @@ export class IOFXMLParser {
     this.course = [];
     this.runners = [];
     this.leader = [];
-    this.supermanOverallTimes = [];
-    this.supermanSplitTimes = [];
+    this.superman = [];
+    this.supermanSplits = [];
     this.mistakesSum = [];
 
-    this.calculateSplitTimes();
+    this.loadSplits();
   }
 
-  calculateSplitTimes() {
+  loadSplits() {
     this.loadSplitsFromXml();
     this.checkIfCourseIsComplete();
     this.calculateRanks();
@@ -35,8 +35,8 @@ export class IOFXMLParser {
   }
 
   loadSplitsFromXml() {
-    let classResults = [...splitsXmlDoc.querySelectorAll("ClassResult")];
-    let IOFXMLVersion = splitsXmlDoc
+    let classResults = [...this.splitsXmlDoc.querySelectorAll("ClassResult")];
+    let IOFXMLVersion = this.splitsXmlDoc
       .querySelector("ResultList")
       .getAttribute("iofVersion");
 
@@ -49,8 +49,8 @@ export class IOFXMLParser {
       } else {
         name = classR.querySelector("ClassShortName").innerHTML;
       }
-      console.log(name, className);
-      return name === className;
+
+      return name === this.className;
     });
 
     let personResults = classResult[0].querySelectorAll("PersonResult");
@@ -75,10 +75,10 @@ export class IOFXMLParser {
           }
         } else {
           startTime =
-            date +
+            this.date +
             "T" +
             personResult.querySelector("StartTime").innerHTML +
-            timezone;
+            this.timezone;
           status = personResult
             .querySelector("CompetitorStatus")
             .getAttribute("value");
