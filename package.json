@@ -1,0 +1,22 @@
+{
+  "name": "iof-xml-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "IOFXMLParser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicoRio42/iof-xml-parser.git"
+  },
+  "keywords": [
+    "orienteering"
+  ],
+  "author": "Nicolas Rio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NicoRio42/iof-xml-parser/issues"
+  },
+  "homepage": "https://github.com/NicoRio42/iof-xml-parser#readme"
+}
